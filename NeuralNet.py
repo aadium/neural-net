@@ -172,7 +172,7 @@ class NeuralNetModel:
         self.bkd = BackwardPass()
 
     def trainSLNN(self, X_train: np.ndarray, Y_train: np.ndarray, X_val: np.ndarray, Y_val: np.ndarray, W1: np.ndarray, W2: np.ndarray, num_epochs: int, lr: float):
-        (N_train, M), C = X_train.shape, 10
+        (N_train, M), C = X_train.shape, Y_train.shape[1]
         best_W1, best_W2, best_val_loss = None, None, None
         train_losses, val_losses = [], []
         
@@ -225,7 +225,7 @@ class NeuralNetModel:
         }
     
     def trainDLNN(self, X_train: np.ndarray, Y_train: np.ndarray, X_val: np.ndarray, Y_val: np.ndarray, W1: np.ndarray, W2: np.ndarray, W3: np.ndarray, num_epochs: int, lr: float):
-        (N_train, M), C = X_train.shape, 10
+        (N_train, M), C = X_train.shape, Y_train.shape[1]
         best_W1, best_W2, best_W3, best_val_loss = None, None, None, None
         train_losses, val_losses = [], []
         
